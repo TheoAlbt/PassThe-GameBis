@@ -46,11 +46,11 @@ public class GameManager : MonoBehaviour
             _TransformTimer += Time.deltaTime;
         }
 
-        Transform _SpawnZone = _SpawnEnnemy.GetSpawnZone();
+        Transform[] _SpawnZone = _SpawnEnnemy.GetSpawnZone();
 
-        if (_TimerSpawn > 10)
+        if (_TimerSpawn > 5)
         {
-            GameObject Ennemy = _SpawnEnnemy.EnnemySpawn(_SpawnZone.position);
+            GameObject Ennemy = _SpawnEnnemy.EnnemySpawn();
             Ennemy.GetComponent<Player>().SetIsIA(true);
             _TimerSpawn = 0f;
         }
@@ -58,17 +58,20 @@ public class GameManager : MonoBehaviour
 
     public void BasicAttack()
     {
-        _Player.BasicAttack();
+        //_Player.BasicAttack();
+        _Player.SetAnimationTrue(2);
     }
 
     public void PowerAttack()
     {
-        _Player.PowerAttack();
+        //_Player.PowerAttack();
+        _Player.SetAnimationTrue(4);
     }
 
     public void LowKickAttack()
     {
-        _Player.LowKickAttack();
+        //_Player.LowKickAttack();
+        _Player.SetAnimationTrue(3);
     }
 
     public void TransformToLittle()

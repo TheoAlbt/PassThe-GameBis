@@ -7,6 +7,7 @@ public class Damage : MonoBehaviour
     [SerializeField] private GameManager _GameManager;
     [SerializeField] private float _BaseDamage;
     [SerializeField] private float _Damage;
+    [SerializeField] private bool _Ejecte;
 
     [SerializeField] private Player _PlayerScript;
     [SerializeField] private Player _PlayerTouched;
@@ -56,7 +57,7 @@ public class Damage : MonoBehaviour
                     _PlayerTouched = other.gameObject.GetComponent<Player>();
                     _TimerPlayerTouched = 0f;
                     _ComboCount = _ComboCount + 1;
-                    _Damage = _BaseDamage * (_ComboCount / 2);
+                    _Damage = _BaseDamage * (1+(_ComboCount / 6));
                     _GameManager.SetCameraShake(2);
                 }
             }
@@ -99,6 +100,11 @@ public class Damage : MonoBehaviour
     public int GetComboCount()
     {
         return _ComboCount;
+    }
+
+    public bool GetEject()
+    {
+        return _Ejecte;
     }
 
     #endregion

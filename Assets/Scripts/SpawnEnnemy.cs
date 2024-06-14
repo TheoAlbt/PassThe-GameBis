@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpawnEnnemy : MonoBehaviour
 {
     [SerializeField] private GameObject _PlayerPrefab;
-    [SerializeField] private Transform _SpawnZone;
+    [SerializeField] private Transform[] _SpawnZone;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +20,13 @@ public class SpawnEnnemy : MonoBehaviour
         
     }
 
-    public GameObject EnnemySpawn(Vector3 Position)
+    public GameObject EnnemySpawn()
     {
-        GameObject Ennemy = Instantiate(_PlayerPrefab, _SpawnZone.position, Quaternion.identity);
+        GameObject Ennemy = Instantiate(_PlayerPrefab, _SpawnZone[Random.Range(0, _SpawnZone.Count())].position, Quaternion.identity);
         return Ennemy;
     }
 
-    public Transform GetSpawnZone()
+    public Transform[] GetSpawnZone()
     {
         return _SpawnZone;
     }
