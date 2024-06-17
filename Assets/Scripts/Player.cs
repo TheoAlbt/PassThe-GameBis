@@ -348,6 +348,8 @@ public class Player : MonoBehaviour
     public void BasicAttack()
     {
         _BasicAttack = true;
+        _Animator.SetBool("LowKick", false);
+        _Animator.SetBool("Strong", false);
         _BasicAttackCollider.enabled = true;
         _CurrentStamina -= _BasicStamina;
     }
@@ -355,6 +357,8 @@ public class Player : MonoBehaviour
     public void PowerAttack()
     {
         _PowerAttack = true;
+        _Animator.SetBool("LowKick", false);
+        _Animator.SetBool("Punch", false);
         _PowerAttackCollider.enabled = true;
         _CurrentStamina -= _PowerStamina;
     }
@@ -362,6 +366,8 @@ public class Player : MonoBehaviour
     public void PowerAttackSpe()
     {
         _PowerAttack = true;
+        _Animator.SetBool("LowKick", false);
+        _Animator.SetBool("Punch", false);
         _CurrentStamina -= _PowerStamina;
     }
     public void PowerAttackSpeStop()
@@ -371,6 +377,8 @@ public class Player : MonoBehaviour
     public void LowKickAttack()
     {
         _LowKickAttack = true;
+        _Animator.SetBool("Punch", false);
+        _Animator.SetBool("Strong", false);
         _LowKickAttackCollider.enabled = true;
         _CurrentStamina -= _LowKickStamina;
     }
