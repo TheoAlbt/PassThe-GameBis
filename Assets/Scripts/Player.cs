@@ -359,6 +359,15 @@ public class Player : MonoBehaviour
         _CurrentStamina -= _PowerStamina;
     }
 
+    public void PowerAttackSpe()
+    {
+        _PowerAttack = true;
+        _CurrentStamina -= _PowerStamina;
+    }
+    public void PowerAttackSpeStop()
+    {
+        _PowerAttack = false;
+    }
     public void LowKickAttack()
     {
         _LowKickAttack = true;
@@ -374,9 +383,12 @@ public class Player : MonoBehaviour
 
     public void PowerAttackStop()
     {
+        if (_PowerAttack)
+        {
+            _PowerAttackVFX.Play();
+        }
         _PowerAttack = false;
         _PowerAttackCollider.enabled = false;
-        _PowerAttackVFX.Play();
     }
 
     public void LowKickAttackStop()

@@ -76,7 +76,10 @@ public class Damage : MonoBehaviour
     {
         _Damage += value;
     }
-
+    public void Setplayer(Player value)
+    {
+        _PlayerScript = value;
+    }
     public void ComboDamage(int value)
     {
         _Damage *= 1 + 0.5f * value;
